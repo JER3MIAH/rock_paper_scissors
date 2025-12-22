@@ -1,5 +1,7 @@
 import 'src/app.dart';
 import 'package:flutter/material.dart';
+import 'loading_indicator_remover.dart' 
+  if (dart.library.js_interop) 'loading_indicator_remover_web.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,4 +12,5 @@ void main() {
       MyApp()
     ),
   );
+  removeLoadingIndicator();
 }
