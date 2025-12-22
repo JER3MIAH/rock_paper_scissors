@@ -12,5 +12,9 @@ void main() {
       MyApp()
     ),
   );
-  removeLoadingIndicator();
+  
+  // Remove loading indicator after first frame is rendered
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    removeLoadingIndicator();
+  });
 }
