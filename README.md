@@ -1,72 +1,58 @@
-# Rock Paper Scissors Game  
+# Rock Paper Scissors Game
 
-A Rock Paper Scissors game built with Flutter. This game offers both a **Classic Mode** and a **Bonus Mode** with extra choices. Players can choose between standard gameplay or the enhanced mode with additional options like Lizard and Spock.  
+A Rock Paper Scissors game built with Flutter. This game offers both a **Classic Mode** and a **Bonus Mode** with extra choices. Players can choose between standard gameplay or the enhanced mode with additional options like Lizard and Spock.
 
-![Video Demo](assets/demo.mp4)  
+![Video Demo](assets/demo.mp4)
 
-## Features  
+## Features
 
-- **Classic Mode**: Play the traditional Rock, Paper, Scissors game.  
-- **Bonus Mode**: Unlocks additional moves (Lizard, Spock) for a more strategic game.  
-- **Smooth Animations**: Enjoy an engaging experience with sleek animations.  
-- **Responsive Design**: Optimized for mobile and desktop devices.  
+- **Classic Mode**: Play the traditional Rock, Paper, Scissors game.
+- **Bonus Mode**: Unlocks additional moves (Lizard, Spock) for a more strategic game.
+- **Smooth Animations**: Enjoy an engaging experience with sleek animations.
+- **Responsive Design**: Optimized for mobile and desktop devices.
 
-## Bonus Mode  
+## Installation
 
-To enable the **Bonus Mode** with extra options, navigate to lib/src/app.dart, 
-and set the game type as shown below:  
+### Prerequisites
 
-```dart  
-BlocProvider(  
-  create: (context) => GameBloc(service: GameService())  
-    ..add(  
-      SetGameType(isBonus: true),  
-    ),  
-);
-```  
+Ensure you have the following installed:
 
-## Installation  
+- Flutter SDK (version >= 3.5)
+- Dart SDK
+- Android Studio / Visual Studio Code for development
+- A physical device or emulator for testing
 
-### Prerequisites  
+### Getting Started
 
-Ensure you have the following installed:  
+1. Clone the repository:
 
-- Flutter SDK (version >= 3.5)  
-- Dart SDK  
-- Android Studio / Visual Studio Code for development  
-- A physical device or emulator for testing  
+```bash
+git clone https://github.com/jer3miah/rock_paper_scissors.git
+```
 
-### Getting Started  
+2. Navigate to the project directory:
 
-1. Clone the repository:  
+```bash
+cd rock-paper-scissors/client
+```
 
-```bash  
-git clone https://github.com/jer3miah/rock_paper_scissors.git  
-```  
+3. Install dependencies:
 
-2. Navigate to the project directory:  
+```bash
+flutter pub get
+```
 
-```bash  
-cd rock-paper-scissors/client  
-```  
+4. Run the app:
 
-3. Install dependencies:  
+- For mobile:
+  ```bash
+  flutter run
+  ```
+- For desktop (if supported):
+  ```bash
+  flutter run -d windows
+  ```
 
-```bash  
-flutter pub get  
-```  
+## License
 
-4. Run the app:  
-
-- For mobile:  
-  ```bash  
-  flutter run  
-  ```  
-- For desktop (if supported):  
-  ```bash  
-  flutter run -d windows  
-  ```  
-
-## License  
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.  
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
