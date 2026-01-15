@@ -23,17 +23,24 @@ class SelectOptionState extends StatelessWidget {
           child: Container(
             constraints: BoxConstraints(
               maxWidth: 472,
-              maxHeight: state.isBonusGame ? 470 : 400,
+              // maxHeight: state.isBonusGame ? 470 : 400,
             ),
-            child: AnimatedSwitcher(
-              duration: Duration(milliseconds: 400),
-              transitionBuilder: (child, animation) => FadeTransition(
-                opacity: animation,
-                child: child,
-              ),
-              child: state.isBonusGame
-                  ? _BonusSelectOption(pickMove: pickMove)
-                  : _ClassicSelectOption(pickMove: pickMove),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 12,
+              children: [
+                AnimatedSwitcher(
+                  duration: Duration(milliseconds: 400),
+                  transitionBuilder: (child, animation) => FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  ),
+                  child: state.isBonusGame
+                      ? _BonusSelectOption(pickMove: pickMove)
+                      : _ClassicSelectOption(pickMove: pickMove),
+                ),
+                GameTypeSwitch(),
+              ],
             ),
           ),
         );

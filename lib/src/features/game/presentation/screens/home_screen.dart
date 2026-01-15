@@ -47,13 +47,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          floatingActionButton: Flex(
-            mainAxisSize: MainAxisSize.min,
-            spacing: 6,
-            direction:
-                DeviceType(context).isMobile ? Axis.horizontal : Axis.vertical,
-            children: [
-              GameTypeSwitch(),
+          floatingActionButton: 
               RulesButton(
                 onTap: () {
                   if (!DeviceType(context).isMobile) {
@@ -74,8 +68,6 @@ class HomeScreen extends StatelessWidget {
                   }
                 },
               ),
-            ],
-          ),
           floatingActionButtonLocation: DeviceType(context).isMobile
               ? FloatingActionButtonLocation.centerDocked
               : null,

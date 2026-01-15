@@ -39,6 +39,9 @@ flutter_launcher_icons:
   macos:
     generate: true
     image_path: "assets/pngs/app-icon.png"
+  web:
+    generate: true
+    image_path: "assets/pngs/app-icon.png"
 
 flutter:
   uses-material-design: true
