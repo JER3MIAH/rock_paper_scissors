@@ -28,7 +28,22 @@ class HomeScreen extends StatelessWidget {
                   isBonus: state.isBonusGame,
                 ),
                 YBox(20),
-                if (state.playedRound) GameResult() else SelectOptionState(),
+                AnimatedSwitcher(
+                  duration: Duration(milliseconds: 400),
+                  transitionBuilder: (child, animation) => FadeTransition(
+                    opacity: animation,
+                    child: SlideTransition(
+                      position: Tween(
+                        begin: const Offset(0, 0.1),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    ),
+                  ),
+                  child: state.playedRound
+                      ? const GameResult(key: ValueKey('result'))
+                      : const SelectOptionState(key: ValueKey('select')),
+                ),
               ],
             ),
           ),
