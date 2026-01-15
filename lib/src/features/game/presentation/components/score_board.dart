@@ -26,7 +26,7 @@ class ScoreBoard extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(
               width: 3,
-              color: appColors.white.withOpacity(.2892),
+              color: appColors.white.withValues(alpha: .2892),
             ),
             borderRadius: BorderRadius.circular(15),
           ),

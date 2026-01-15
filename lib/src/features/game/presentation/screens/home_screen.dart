@@ -32,25 +32,34 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          floatingActionButton: RulesButton(
-            onTap: () {
-              if (!DeviceType(context).isMobile) {
-                AppDialog.dialog(
-                  context,
-                  GameRules(isDialog: true, isBonus: state.isBonusGame),
-                );
-              } else {
-                showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: true,
-                  shape: Border(),
-                  builder: (context) => GameRules(
-                    isDialog: false,
-                    isBonus: state.isBonusGame,
-                  ),
-                );
-              }
-            },
+          floatingActionButton: Flex(
+            mainAxisSize: MainAxisSize.min,
+            spacing: 6,
+            direction:
+                DeviceType(context).isMobile ? Axis.horizontal : Axis.vertical,
+            children: [
+              GameTypeSwitch(),
+              RulesButton(
+                onTap: () {
+                  if (!DeviceType(context).isMobile) {
+                    AppDialog.dialog(
+                      context,
+                      GameRules(isDialog: true, isBonus: state.isBonusGame),
+                    );
+                  } else {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      shape: Border(),
+                      builder: (context) => GameRules(
+                        isDialog: false,
+                        isBonus: state.isBonusGame,
+                      ),
+                    );
+                  }
+                },
+              ),
+            ],
           ),
           floatingActionButtonLocation: DeviceType(context).isMobile
               ? FloatingActionButtonLocation.centerDocked

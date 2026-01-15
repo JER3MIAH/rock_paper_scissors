@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:rock_paper_scissors/src/features/navigation/app_navigator.dart';
-import 'package:rock_paper_scissors/src/features/navigation/routes.dart';
+import 'package:rock_paper_scissors/src/features/game/presentation/screens/screens.dart';
 import 'package:rock_paper_scissors/src/shared/shared.dart';
 
 class SplashScreen extends HookWidget {
@@ -9,12 +8,20 @@ class SplashScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navigator = AppNavigator(context);
+    void pushToHome() {
+      Navigator.push(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (_, __, ___) => HomeScreen(),
+          transitionDuration: const Duration(milliseconds: 400),
+        ),
+      );
+    }
 
     useEffect(() {
       Future.delayed(
         const Duration(milliseconds: 500),
-        () => navigator.replaceAllNamed(AppRoutes.home),
+        pushToHome,
       );
       return null;
     }, const []);

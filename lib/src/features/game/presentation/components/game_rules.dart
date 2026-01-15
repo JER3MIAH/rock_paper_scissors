@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rock_paper_scissors/src/features/navigation/app_navigator.dart';
 import 'package:rock_paper_scissors/src/shared/shared.dart';
 
 class GameRules extends StatelessWidget {
@@ -35,7 +34,7 @@ class GameRules extends StatelessWidget {
                 ),
                 if (isDialog)
                   BounceInAnimation(
-                    onTap: () => AppNavigator(context).popDialog(),
+                    onTap: () => Navigator.of(context).pop(),
                     child: SvgAsset(path: iconClose),
                   ),
               ],
@@ -51,7 +50,7 @@ class GameRules extends StatelessWidget {
           ),
           if (!isDialog)
             BounceInAnimation(
-              onTap: () => AppNavigator(context).popDialog(),
+              onTap: () => Navigator.of(context).pop(),
               child: SvgAsset(path: iconClose),
             ),
         ],

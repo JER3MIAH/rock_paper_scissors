@@ -22,7 +22,7 @@ class GameOptionContainer extends HookWidget {
             height: size,
             width: size,
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(.1),
+              color: Colors.black.withValues(alpha: .1),
               shape: BoxShape.circle,
             ),
           )
@@ -31,7 +31,7 @@ class GameOptionContainer extends HookWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isHovering.value
-                  ? appColors.white.withOpacity(.05)
+                  ? appColors.white.withValues(alpha: .05)
                   : Colors.transparent,
             ),
             child: GestureDetector(
