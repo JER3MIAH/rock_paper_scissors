@@ -1,6 +1,6 @@
 {
-    "name": "rock_paper_scissors",
-    "short_name": "rock_paper_scissors",
+    "name": "Rock Paper Scissors",
+    "short_name": "Rock Paper Scissors",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
