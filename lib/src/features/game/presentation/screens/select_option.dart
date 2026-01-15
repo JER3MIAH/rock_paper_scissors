@@ -25,102 +25,122 @@ class SelectOptionState extends StatelessWidget {
               maxWidth: 472,
               maxHeight: state.isBonusGame ? 470 : 400,
             ),
-            child: AspectRatio(
-              aspectRatio: 436 / 400,
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 400),
+              transitionBuilder: (child, animation) => FadeTransition(
+                opacity: animation,
+                child: child,
+              ),
               child: state.isBonusGame
-                  ? _buildBonusSelectOption(pickMove)
-                  : _buildSelectOption(pickMove),
+                  ? _BonusSelectOption(pickMove: pickMove)
+                  : _ClassicSelectOption(pickMove: pickMove),
             ),
           ),
         );
       },
     );
   }
+}
 
-  Widget _buildBonusSelectOption(void Function(String yourPick) pickMove) {
-    Widget buildTile(String name) {
-      return GameOptionContainer(
-        icon: nameToPath(name),
-        size: 110,
-        onTap: () => pickMove(name),
-      );
-    }
+class _BonusSelectOption extends StatelessWidget {
+  final void Function(String yourPick) pickMove;
+  const _BonusSelectOption({required this.pickMove});
 
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        SvgAsset(
-          path: pentagon,
-          height: 300,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            buildTile(SCISSORS),
-            Transform.translate(
-              offset: Offset(0, -20),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    buildTile(SPOCK),
-                    buildTile(PAPER),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 70),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  buildTile(LIZARD),
-                  buildTile(ROCK),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
+  Widget _buildTile(String name) {
+    return GameOptionContainer(
+      icon: nameToPath(name),
+      size: 110,
+      onTap: () => pickMove(name),
     );
   }
 
-  Widget _buildSelectOption(void Function(String yourPick) pickMove) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        AspectRatio(
-          aspectRatio: 254 / 287,
-          child: SvgAsset(
-            path: bgTriangle,
-            // width: 254,
-            // height: 287,
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 436 / 400,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          SvgAsset(
+            path: pentagon,
+            height: 300,
           ),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GameOptionContainer(
-                  icon: paperTile,
-                  onTap: () => pickMove(PAPER),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildTile(SCISSORS),
+              Transform.translate(
+                offset: Offset(0, -20),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildTile(SPOCK),
+                      _buildTile(PAPER),
+                    ],
+                  ),
                 ),
-                GameOptionContainer(
-                  icon: scissorsTile,
-                  onTap: () => pickMove(SCISSORS),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 70),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildTile(LIZARD),
+                    _buildTile(ROCK),
+                  ],
                 ),
-              ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ClassicSelectOption extends StatelessWidget {
+  final void Function(String yourPick) pickMove;
+  const _ClassicSelectOption({required this.pickMove});
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 436 / 400,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          AspectRatio(
+            aspectRatio: 254 / 287,
+            child: SvgAsset(
+              path: bgTriangle,
             ),
-            GameOptionContainer(
-              icon: rockTile,
-              onTap: () => pickMove(ROCK),
-            ),
-          ],
-        ),
-      ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GameOptionContainer(
+                    icon: paperTile,
+                    onTap: () => pickMove(PAPER),
+                  ),
+                  GameOptionContainer(
+                    icon: scissorsTile,
+                    onTap: () => pickMove(SCISSORS),
+                  ),
+                ],
+              ),
+              GameOptionContainer(
+                icon: rockTile,
+                onTap: () => pickMove(ROCK),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
