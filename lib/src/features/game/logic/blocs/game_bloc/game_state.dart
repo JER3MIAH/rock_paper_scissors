@@ -19,7 +19,8 @@ class GameState extends Equatable {
   });
 
   @override
-  List<Object> get props => [score, yourPick, housePick, playedRound, isBonusGame, result];
+  List<Object> get props =>
+      [score, yourPick, housePick, playedRound, isBonusGame, result];
 
   GameState copyWith({
     int? score,

@@ -18,7 +18,6 @@ class GameTypeSwitch extends StatelessWidget {
             'Classic'.toUpperCase(),
             color: appColors.white.withValues(alpha: .6),
             fontWeight: FontWeight.w600,
-            
           ),
           Switch(
             value: state.isBonusGame,

@@ -1,7 +1,6 @@
 const String baseSvgPath = 'assets/svgs/';
 const String basePngPath = 'assets/pngs/';
 
-
 final String bgPentagon = 'bg-pentagon'.svg;
 final String pentagon = 'pentagon'.svg;
 final String bgTriangle = 'bg-triangle'.svg;

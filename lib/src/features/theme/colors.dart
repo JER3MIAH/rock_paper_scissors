@@ -35,8 +35,8 @@ class AppColors {
 
   final Gradient scoreBoardGradient = LinearGradient(
     colors: [
-     Color(0xFFF3F3F3),
-     Color(0xFFFFFFFF),
+      Color(0xFFF3F3F3),
+      Color(0xFFFFFFFF),
     ],
   );
 
@@ -57,4 +57,3 @@ class AppColors {
     end: Alignment.bottomRight,
   );
 }
-
